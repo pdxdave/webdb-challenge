@@ -3,7 +3,7 @@ const mappers = require('./mappers');
 
 module.exports = {
   get: function(id) {
-    let query = db('project_table');
+    let query = db('actions');
 
     if (id) {
       return query
@@ -17,18 +17,18 @@ module.exports = {
     });
   },
   insert: function(action) {
-    return db('project_table')
+    return db('actions')
       .insert(action)
       .then(([id]) => this.get(id));
   },
   update: function(id, changes) {
-    return db('project_table')
+    return db('actions')
       .where('id', id)
       .update(changes)
       .then(count => (count > 0 ? this.get(id) : null));
   },
   remove: function(id) {
-    return db('project_table')
+    return db('actions')
       .where('id', id)
       .del();
   },
