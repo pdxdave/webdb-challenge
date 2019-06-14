@@ -60,9 +60,8 @@ router.get('/:id/actions', async (req, res) => {
 // INSERT a new project
 router.post('/', async (req, res) => {
     try {
-        const post = await ProjectModel.insert(req.body)
-        console.log('projectRouter', post)
-        res.status(201).json(post)
+        const post = await ProjectModel.insert(req.body);
+        res.status(201).json(post);
     } catch (error) {
         res.status(500).json({
             message: "Please provide all the content necessary"
