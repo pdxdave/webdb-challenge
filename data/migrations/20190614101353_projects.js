@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
             .notNullable();
 
         projects
-            .string('description', 128)
+            .text('description')
             .notNullable();
 
         projects  
