@@ -15,11 +15,11 @@ server.use(logger);
 server.use(cors());
 
 // router
-// const someAction = require('./action/action');
-// const someProject = require('./project/project');
+const ActionRouter = require('./data/routerInfo/actionRouter');
+const ProjectRouter = require('./data/routerInfo/projectRouter');
 
-// server.use('/api/action', someAction);
-// server.use('/api/project', someProject);
+server.use('/api/action', ActionRouter);
+server.use('/api/project', ProjectRouter);
 
 // test output
 server.get('/', (req, res) => {
